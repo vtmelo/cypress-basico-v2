@@ -49,7 +49,7 @@ describe('Central de Atendimento ao Cliente TAT', function() {
     it('campo telefone continua vazio quando preenchido com valor não-numérico', function() {
       cy.get('#phone')
         .type('abcdefghij')
-        .should('have.value', '123123123')
+        .should('have.value', '')
     })
   })
 
