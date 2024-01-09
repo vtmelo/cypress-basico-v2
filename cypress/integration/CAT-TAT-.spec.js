@@ -14,8 +14,6 @@ describe('Central de Atendimento ao Cliente TAT', function() {
   it('preenche os campos obrigatórios e envia o formulário', function() {
     const longText = 'Teste, teste, teste, teste, teste, teste, teste, teste, teste, teste, teste, teste, teste, teste, teste, teste, teste, teste, teste, teste, teste, teste, teste.'
 
-    cy.clock()
-
     cy.get('#firstName').type('Walmyr')
     cy.get('#lastName').type('Filho')
     cy.get('#email').type('walmyr@exemplo.com')
@@ -24,13 +22,13 @@ describe('Central de Atendimento ao Cliente TAT', function() {
 
     cy.get('.success').should('be.visible')
 
-    cy.tick(THREE_SECONDS_IN_MS)
 
+    
     cy.get('.success').should('not.be.visible')
   })
 
   it('exibe mensagem de erro ao submeter o formulário com um email com formatação inválida', function() {
-    cy.clock()
+     
 
     cy.get('#firstName').type('Walmyr')
     cy.get('#lastName').type('Filho')
@@ -40,8 +38,8 @@ describe('Central de Atendimento ao Cliente TAT', function() {
 
     cy.get('.error').should('be.visible')
 
-    cy.tick(THREE_SECONDS_IN_MS)
 
+    
     cy.get('.error').should('not.be.visible')
   })
 
@@ -54,7 +52,7 @@ describe('Central de Atendimento ao Cliente TAT', function() {
   })
 
   it('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', function() {
-    cy.clock()
+     
 
     cy.get('#firstName').type('Walmyr')
     cy.get('#lastName').type('Filho')
@@ -65,8 +63,8 @@ describe('Central de Atendimento ao Cliente TAT', function() {
 
     cy.get('.error').should('be.visible')
 
-    cy.tick(THREE_SECONDS_IN_MS)
 
+    
     cy.get('.error').should('not.be.visible')
   })
 
@@ -94,26 +92,25 @@ describe('Central de Atendimento ao Cliente TAT', function() {
   })
 
   it('exibe mensagem de erro ao submeter o formulário sem preencher os campos obrigatórios', function() {
-    cy.clock()
+     
 
     cy.contains('button', 'Enviar').click()
 
     cy.get('.error').should('be.visible')
 
-    cy.tick(THREE_SECONDS_IN_MS)
 
     cy.get('.error').should('not.be.visible')
   })
 
   it('envia o formuário com sucesso usando um comando customizado', function() {
-    cy.clock()
+     
 
     cy.fillMandatoryFieldsAndSubmit()
 
     cy.get('.success').should('be.visible')
 
-    cy.tick(THREE_SECONDS_IN_MS)
 
+    
     cy.get('.success').should('not.be.visible')
   })
 
